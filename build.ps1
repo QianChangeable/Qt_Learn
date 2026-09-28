@@ -1,6 +1,6 @@
 ﻿param(
-    [switch]$Run,
+    [switch]$NoRun,
     [switch]$Clean
 )
 
-& "$PSScriptRoot\scripts\build.ps1" -Run:$Run -Clean:$Clean
+& "$PSScriptRoot\scripts\build.ps1" -NoRun:$NoRun -Clean:$Clean
