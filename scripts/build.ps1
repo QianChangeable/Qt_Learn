@@ -1,5 +1,5 @@
 ﻿param(
-    [switch]$Run,
+    [switch]$NoRun,
     [switch]$Clean
 )
 
@@ -59,7 +59,7 @@ if (-not (Test-Path $exe)) {
 
 Write-Host "==> OK: $exe" -ForegroundColor Green
 
-if ($Run) {
+if (-not $NoRun) {
     Write-Host "==> Launching..." -ForegroundColor Cyan
     Start-Process $exe
 }
