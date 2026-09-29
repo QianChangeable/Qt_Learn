@@ -33,6 +33,8 @@ MainWindow::MainWindow(QWidget* parent) : QWidget(parent) {
 	connect(m_button, &QPushButton::clicked, this, &MainWindow::onButtonClicked);
 
 	connect(m_lineEdit, &QLineEdit::textChanged, this, &MainWindow::onTextChanged);
+
+	connect(this, &MainWindow::textEdited, this, &MainWindow::onTextEdited);
 }
 
 void MainWindow::onButtonClicked() {
@@ -41,4 +43,9 @@ void MainWindow::onButtonClicked() {
 
 void MainWindow::onTextChanged(const QString& text) {
 	m_button->setText(text);
+	emit textEdited(text);
+}
+
+void MainWindow::onTextEdited(const QString& text) {
+	setWindowTitle(text.isEmpty() ? "Hello, Qt!" : text);
 }
