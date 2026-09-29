@@ -5,7 +5,7 @@
 #include <QSizePolicy>
 #include <QVBoxLayout>
 
-mainWindow::mainWindow(QWidget* parent) : QWidget(parent) {
+MainWindow::MainWindow(QWidget* parent) : QWidget(parent) {
 	setWindowTitle("Hello, Qt!");
 	resize(1200, 900);
 
@@ -21,7 +21,10 @@ mainWindow::mainWindow(QWidget* parent) : QWidget(parent) {
 	VLayout->addStretch(1);
 	VLayout->addLayout(HLayout, 2);
 	VLayout->addStretch(1);
+
+	connect(m_button, &QPushButton::clicked, this, &MainWindow::onButtonClicked);
 }
 
-void mainWindow::onButtonClicked() {
+void MainWindow::onButtonClicked() {
+	m_button->setText("Clicked!");
 }
