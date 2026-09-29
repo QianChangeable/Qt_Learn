@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 
 #include <QHBoxLayout>
+#include <QLineEdit>
 #include <QPushButton>
 #include <QSizePolicy>
 #include <QVBoxLayout>
@@ -12,9 +13,16 @@ MainWindow::MainWindow(QWidget* parent) : QWidget(parent) {
 	m_button = new QPushButton("Click me!", this);
 	m_button->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
+	m_lineEdit = new QLineEdit(this);
+	m_lineEdit->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+
+	QVBoxLayout* centerColumn = new QVBoxLayout();
+	centerColumn->addWidget(m_lineEdit);
+	centerColumn->addWidget(m_button, 2);
+
 	QHBoxLayout* HLayout = new QHBoxLayout();
 	HLayout->addStretch(1);
-	HLayout->addWidget(m_button, 2);
+	HLayout->addLayout(centerColumn, 2);
 	HLayout->addStretch(1);
 
 	QVBoxLayout* VLayout = new QVBoxLayout(this);
@@ -23,8 +31,14 @@ MainWindow::MainWindow(QWidget* parent) : QWidget(parent) {
 	VLayout->addStretch(1);
 
 	connect(m_button, &QPushButton::clicked, this, &MainWindow::onButtonClicked);
+
+	connect(m_lineEdit, &QLineEdit::textChanged, this, &MainWindow::onTextChanged);
 }
 
 void MainWindow::onButtonClicked() {
 	m_button->setText("Clicked!");
+}
+
+void MainWindow::onTextChanged(const QString& text) {
+	m_button->setText(text);
 }
