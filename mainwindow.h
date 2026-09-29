@@ -4,10 +4,10 @@
 
 class QPushButton;
 
-class mainWindow : public QWidget {
+class MainWindow : public QWidget {
 	Q_OBJECT
 public:
-	explicit mainWindow(QWidget* parent = nullptr);
+	explicit MainWindow(QWidget* parent = nullptr);
 
 private slots:
 	void onButtonClicked();
