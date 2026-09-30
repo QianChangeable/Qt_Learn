@@ -14,6 +14,16 @@ add_executable(HelloQt
     main.cpp
     mainwindow.cpp
     mainwindow.h
+    widgets/titlebar.cpp
+    widgets/titlebar.h
+    widgets/activitybar.cpp
+    widgets/activitybar.h
+    widgets/sidebar.cpp
+    widgets/sidebar.h
+    widgets/contentarea.cpp
+    widgets/contentarea.h
+    widgets/statusbar.cpp
+    widgets/statusbar.h
 )
 target_link_libraries(HelloQt PRIVATE Qt5::Widgets)
 
