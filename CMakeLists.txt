@@ -10,7 +10,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 # 使用 Qt 5.15.2
 find_package(Qt5 REQUIRED COMPONENTS Widgets)
 
-add_executable(HelloQt
+set(HELLOQT_SOURCES
     main.cpp
     mainwindow.cpp
     mainwindow.h
@@ -25,7 +25,21 @@ add_executable(HelloQt
     widgets/statusbar.cpp
     widgets/statusbar.h
 )
+
+if(APPLE)
+    enable_language(OBJCXX)
+    list(APPEND HELLOQT_SOURCES
+        platform/macos_window.mm
+        platform/macos_window.h
+    )
+endif()
+
+add_executable(HelloQt ${HELLOQT_SOURCES})
 target_link_libraries(HelloQt PRIVATE Qt5::Widgets)
+
+if(APPLE)
+    target_link_libraries(HelloQt PRIVATE "-framework AppKit")
+endif()
 
 if(WIN32)
     set_target_properties(HelloQt PROPERTIES WIN32_EXECUTABLE TRUE)
