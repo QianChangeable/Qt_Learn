@@ -12,6 +12,8 @@
 MainWindow::MainWindow(QWidget* parent) : QWidget(parent) {
 	setWindowTitle("Hello, Qt!");
 	resize(1200, 800);
+	setAttribute(Qt::WA_StyledBackground, true);
+	setStyleSheet("background: #1e1e1e;");
 
 	m_titleBar = new TitleBar(this);
 	m_activityBar = new ActivityBar(this);
