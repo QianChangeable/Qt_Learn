@@ -8,6 +8,13 @@ class SideBar : public QWidget {
 public:
     explicit SideBar(QWidget* parent = nullptr);
 
+signals:
+    void workingDirectoryLocation(const QString& path);
+
+private slots:
+    void onCreateDirClicked();
+
 private:
     QPushButton* m_createDir = nullptr;
+    QString m_workingDirectory;
 };
