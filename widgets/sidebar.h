@@ -2,8 +2,12 @@
 
 #include <QWidget>
 
+class QPushButton;
 class SideBar : public QWidget {
-	Q_OBJECT
+    Q_OBJECT
 public:
-	explicit SideBar(QWidget* parent = nullptr);
+    explicit SideBar(QWidget* parent = nullptr);
+
+private:
+    QPushButton* m_createDir = nullptr;
 };

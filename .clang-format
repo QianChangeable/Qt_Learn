@@ -1,0 +1,11 @@
+BasedOnStyle: LLVM                          # 以 LLVM 风格为底，再覆盖下面几项
+BreakBeforeBraces: Attach                   # 大括号不换行，跟在语句后面：if (x) {
+IndentWidth: 4                              # 每层缩进 4 空格
+TabWidth: 4                                 # Tab 按 4 空格宽度显示
+AccessModifierOffset: -4                    # public/private 与 class 齐平（抵消一层缩进）
+PointerAlignment: Left                      # * 和 & 贴类型：int& nums，不是 int &nums
+AllowShortFunctionsOnASingleLine: None      # 空函数不要收成一行 foo() {}
+AllowShortBlocksOnASingleLine: Never        # if/for 的空块也不要收成一行
+ColumnLimit: 0                              # 不按列宽自动换行；0 表示不限制行长
+IncludeBlocks: Regroup                      # 按类别重排并分组 #include
+SortIncludes: CaseSensitive                 # 保存/格式化时自动排序头文件
